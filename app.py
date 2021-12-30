@@ -25,7 +25,7 @@ app.layout = html.Div([
 )
 def displayPage(pathname):
     if DEV:
-        return nilai.layout()
+        return kelola.layout()
     else:
         if pathname == '/main':
             if current_user.is_authenticated:
