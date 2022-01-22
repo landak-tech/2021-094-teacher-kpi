@@ -1,5 +1,4 @@
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import dcc,html
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output, State
 
@@ -12,18 +11,22 @@ layout = dbc.Container([
     dbc.Row(
         dbc.Container([
             dcc.Location(id='urlLogin', refresh=True),
-            dbc.Form([
-                dbc.FormGroup([
-                    dbc.Label("Email", className="mr-2"),
-                    dbc.Input(type="text", id='usernameBox', placeholder="Enter your username", n_submit=0, className='form-control'),
-                ], className="mr-3"),
-                dbc.FormGroup([
-                    dbc.Label("Password", className="mr-2"),
-                    dbc.Input(type="password", id='passwordBox', placeholder="Enter your password", n_submit=0, className='form-control'),
-                ], className="mr-3"),
-                dbc.Button(html.B("Login", style={'padding-left': 20, 'padding-right': 20, 'font-size': 'large'}), id='loginButton', color="primary", n_clicks=0, className='mr-2')
-            ], inline=False, className='form-group')
-        ], className='jumbotron', style={'background-color': '#f8f9fa'}),
+            dbc.Card(
+                dbc.CardBody(
+                    dbc.Col([
+                        dbc.Row([
+                            dbc.Label("Email", className="mr-2"),
+                            dbc.Input(type="text", id='usernameBox', placeholder="Enter your username", n_submit=0, className='form-control'),
+                        ], className="mr-3", style={'margin':10}),
+                        dbc.Row([
+                            dbc.Label("Password", className="mr-2"),
+                            dbc.Input(type="password", id='passwordBox', placeholder="Enter your password", n_submit=0, className='form-control'),
+                        ], className="mr-3", style={'margin':10}),
+                        dbc.Button(html.B("Login", style={'padding-left': 20, 'padding-right': 20, 'font-size': 'large'}), id='loginButton', color="primary", n_clicks=0, className='mr-2')
+                    ], className='form-group', style={'padding':40})
+                )
+            )
+        ], className='jumbotron'),
         justify='center', align='center',style={'height':'80vh'}
     )
 ])

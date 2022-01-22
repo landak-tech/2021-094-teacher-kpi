@@ -6,19 +6,14 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
+sqlalchemy = "*"
 plotly = "*"
 dash = "*"
-dash-bootstrap-components = "<1.0.0"
 flask-login = "*"
-sqlalchemy = "*"
 flask-sqlalchemy = "*"
-jupyter = "*"
-ipykernel = "*"
-scikit-criteria = "*"
+dash-bootstrap-components = "*"
 pandas = "*"
 numpy = "*"
-openpyxl = "*"
-gunicorn = "*"
 
 [requires]
 python_version = "3.9"
